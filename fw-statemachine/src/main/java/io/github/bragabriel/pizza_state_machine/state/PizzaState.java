@@ -1,7 +1,6 @@
 package io.github.bragabriel.pizza_state_machine.state;
 
 import io.github.bragabriel.pizza_state_machine.entity.Pizza;
-import io.github.bragabriel.pizza_state_machine.exception.NotAllowedTransitionException;
 
 public interface PizzaState {
 
