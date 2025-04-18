@@ -1,6 +1,7 @@
 package io.github.bragabriel.pizza_state_machine.state;
 
 import io.github.bragabriel.pizza_state_machine.entity.Pizza;
+import io.github.bragabriel.pizza_state_machine.exception.NotAllowedTransitionException;
 
 // Estado inicial: Pedido recebido
 public class PreparingState implements PizzaState {
@@ -12,17 +13,16 @@ public class PreparingState implements PizzaState {
 
 	@Override
 	public void startAssembling(Pizza pizza) {
-
 	}
 
 	@Override
 	public void startBaking(Pizza pizza) {
-
+		throw new NotAllowedTransitionException(pizza.getStatus(), "baking");
 	}
 
 	@Override
 	public void finish(Pizza pizza) {
-
+		throw new NotAllowedTransitionException(pizza.getStatus(), "finish");
 	}
 
 	@Override

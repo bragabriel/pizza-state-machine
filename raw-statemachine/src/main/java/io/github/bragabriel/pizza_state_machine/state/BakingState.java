@@ -22,7 +22,7 @@ public class BakingState implements PizzaState{
 
 	@Override
 	public void finish(Pizza pizza) {
-
+		pizza.setState(new FinishedState());
 	}
 
 	@Override

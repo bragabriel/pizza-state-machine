@@ -19,7 +19,7 @@ public class PizzaStateMachineApplication {
 		System.out.println("Current State: " + pizza.getStatus() + "\n");
 
 		pizza.setState(new BakingState());
-		pizza.cancel();
+		pizza.bake();
 		System.out.println("Current State: " + pizza.getStatus() + "\n");
 
 		pizza.setState(new FinishedState());
