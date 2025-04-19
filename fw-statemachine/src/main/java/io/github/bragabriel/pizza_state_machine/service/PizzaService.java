@@ -1,14 +1,18 @@
 package io.github.bragabriel.pizza_state_machine.service;
 
 import io.github.bragabriel.pizza_state_machine.entity.Pizza;
-import io.github.bragabriel.pizza_state_machine.enumerator.PizzaEvent;
+import io.github.bragabriel.pizza_state_machine.event.PizzaEvent;
+import io.github.bragabriel.pizza_state_machine.exception.NotAllowedTransitionException;
 import io.github.bragabriel.pizza_state_machine.state.PizzaState;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.statemachine.StateMachine;
+import org.springframework.statemachine.StateMachineEventResult;
 import org.springframework.statemachine.config.StateMachineFactory;
 import org.springframework.statemachine.support.DefaultStateMachineContext;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Mono;
 
 @Service
 @RequiredArgsConstructor
@@ -17,24 +21,33 @@ public class PizzaService {
 	@Autowired
 	private final StateMachineFactory<PizzaState, PizzaEvent> stateMachineFactory;
 
-	public void processEvent(Pizza pizza, PizzaEvent event) {
-
+	public Mono<Void> processEvent(Pizza pizza, PizzaEvent targetEvent) {
 		StateMachine<PizzaState, PizzaEvent> machine =
 				stateMachineFactory.getStateMachine(String.valueOf(pizza.getId()));
 
-		machine.stop();
-		machine.getStateMachineAccessor().doWithAllRegions(accessor -> {
-			accessor.resetStateMachine(new DefaultStateMachineContext<>(pizza.getState(), null, null, null));
-		});
+		if (machine.getState() == null) {
+			machine.getStateMachineAccessor().doWithAllRegions(accessor -> {
+				accessor.resetStateMachineReactively(
+						new DefaultStateMachineContext<>(pizza.getState(), null, null, null)
+				).subscribe();
+			});
 
-		machine.start();
-
-		boolean accepted = machine.sendEvent(event);
-
-		if (!accepted) {
-			throw new IllegalStateException("Invalid transition from " + pizza.getState() + " with event " + event);
+			machine.startReactively().subscribe();
 		}
 
-		pizza.setState(machine.getState().getId());
+		return machine.sendEvent(Mono.just(MessageBuilder.withPayload(targetEvent).build()))
+				.next()
+				.flatMap(result -> {
+					if (result.getResultType() == StateMachineEventResult.ResultType.DENIED) {
+						return Mono.error(new NotAllowedTransitionException(pizza.getState(), targetEvent));
+					}
+					if (machine.getState() != null) {
+						pizza.setState(machine.getState().getId());
+						return Mono.empty();
+					} else {
+						return Mono.error(new IllegalStateException("Estado inválido após transição: " + targetEvent));
+					}
+				});
 	}
 }
+

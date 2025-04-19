@@ -1,6 +1,6 @@
 package io.github.bragabriel.pizza_state_machine.config;
 
-import io.github.bragabriel.pizza_state_machine.enumerator.PizzaEvent;
+import io.github.bragabriel.pizza_state_machine.event.PizzaEvent;
 import io.github.bragabriel.pizza_state_machine.state.PizzaState;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.statemachine.config.EnableStateMachineFactory;
@@ -40,9 +40,6 @@ public class PizzaStateMachineConfig extends EnumStateMachineConfigurerAdapter<P
 				.source(PizzaState.BAKING).target(PizzaState.READY).event(PizzaEvent.FINISH)
 				.and()
 				// Cancelamento permitido até começar a assar
-				.withExternal()
-				.source(PizzaState.ORDER_RECEIVED).target(PizzaState.CANCELLED).event(PizzaEvent.CANCEL)
-				.and()
 				.withExternal()
 				.source(PizzaState.PREPARING).target(PizzaState.CANCELLED).event(PizzaEvent.CANCEL)
 				.and()
