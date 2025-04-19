@@ -4,10 +4,17 @@ This is a practical project that demonstrates how to implement a **State Machine
 
 The example simulates a pizza order flow, going through states like `ORDER_RECEIVED`, `PREPARING`, `ASSEMBLING`, and `BAKING`, until reaching `READY` or being `CANCELLED`.
 
-This project is divided into three modules:
+### 🗺️ State Machine Diagrams
+#### Flow Diagram
+![state-machine.png](docs/state-machine.png)
 
-1. [`module-raw`](./modulo-raw/README.md): Manual implementation, no frameworks.
-2. [`module-fw`](./modulo-fw/README.md): Implementation using Spring StateMachine-Framework.
+#### States and Events
+![events-and-states.png](docs/events-and-states.png)
+
+### This project is divided into three modules:
+
+1. [raw-statemachine](raw-statemachine/README.md): Manual implementation, no frameworks. 
+2. [fw-statemachine](fw-statemachine/README.md): Implementation using Spring StateMachine-Framework.
 
 > 📌 Check the README.md of each module for more details.
 ---
@@ -23,9 +30,9 @@ This project is part of a **video series** on my [YouTube channel](https://www.y
 ### 📺 Watch the episodes:
 1. [What is a State Machine?](https://www.youtube.com/@gabrielbragadev)
 
-2. [Implementing a State Machine manually in Java](https://www.youtube.com/@gabrielbragadev)
+2. [Implementing a State-Machine manually in Java (No Frameworks)](https://www.youtube.com/@gabrielbragadev)
 
-3. [Using Spring StateMachine in a real-world flow](https://www.youtube.com/@gabrielbragadev)
+3. [State Machines with Spring: Clean, Scalable, Easy](https://www.youtube.com/@gabrielbragadev)
 
 ---
 

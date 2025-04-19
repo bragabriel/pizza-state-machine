@@ -24,14 +24,14 @@ It **automatically handles** state transitions, guards, and event triggering usi
 ## ⚙️ Pizza Flow Example
 
 1. **ORDER_RECEIVED** – Order has been placed.
-    - Event: `START_PREPARE`
 2. **PREPARING** – Ingredients are being prepared.
-    - Event: `START_ASSEMBLING` or `CANCEL`
+    - Event: `START_PREAPARE` or `CANCEL`
 3. **ASSEMBLING** – Pizza is being assembled.
-    - Event: `START_BAKING` or `CANCEL`
+    - Event: `START_ASSEMBLING` or `CANCEL`
 4. **BAKING** – Pizza is in the oven.
-    - Event: `FINISH`
+    - Event: `START_BAKING`
 5. **READY** – Pizza is finished. End state.
+    - Event: `FINISH`
 6. **CANCELLED** – Order was cancelled. End state.
 
 ---
@@ -48,10 +48,7 @@ Logs will show the state transitions happening step by step.
 ---
 
 ## 📚 Technologies used
-- Java 21
-- Spring Boot
-- Spring StateMachine
-- Maven
+Java 21; Spring Boot; Spring StateMachine
 
 ---
 
@@ -65,6 +62,6 @@ Created by Gabriel Braga — [LinkedIn](https://www.linkedin.com/in/gabriel-brag
 
 ## 🔗 Related modules
 
-- [Raw StateMachine Module](../modulo-fw/README.md): Implementation **without** using the 
+- [Raw StateMachine Module](../raw-statemachine/README.md): Implementation **without** using the 
   <u>state-machine-framework</u>.
 - [Project Root](../README.md): Overview and series link

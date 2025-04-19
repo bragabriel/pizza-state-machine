@@ -1,4 +1,4 @@
-# 🍕 Raw Java Pizza State Machine
+# 🍕 Pizza State Machine (without frameworks)
 
 This module shows how to implement a **State Machine from scratch**, without the state-machine-framework.
 
@@ -10,12 +10,6 @@ learning the fundamentals** before diving into frameworks.
 > - Part 1: Explaining what a State Machine is.
 > - **Part 2 (this one): Implementing a State Machine manually in Java.** [Watch the video here](https://www.youtube.com/@gabrielbragadev) 👈
 > - Part 3 : Using Spring State Machine Framework. 
-
----
-
-## 📺 Video
-
-This module is explained in **Part 2** of my YouTube series: [Watch the video here](https://youtube.com/placeholder) 👈
 
 ---
 
@@ -64,5 +58,5 @@ Created by Gabriel Braga — [LinkedIn](https://www.linkedin.com/in/gabriel-brag
 
 ## 🔗 Related modules
 
-- [FW StateMachine Module](../modulo-fw/README.md): Implementation **using** the <u>state-machine-framework</u>.
+- [FW StateMachine Module](../fw-statemachine/README.md): Implementation **using** the <u>state-machine-framework</u>.
 - [Project Root](../README.md): Overview and series link.
