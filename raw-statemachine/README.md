@@ -8,7 +8,7 @@ learning the fundamentals** before diving into frameworks.
 
 > 🎥 This is **Part 2** of the series:
 > - Part 1: Explaining what a State Machine is.
-> - **Part 2 (this one): Implementing a State Machine manually in Java.** [Watch the video here](https://www.youtube.com/@gabrielbragadev) 👈
+> - **Part 2 (this one): Implementing a State Machine manually in Java.** [Watch the video here](https://youtu.be/wrCdHYnlj14) 👈
 > - Part 3 : Using Spring State Machine Framework. 
 
 ---
