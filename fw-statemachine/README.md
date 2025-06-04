@@ -8,7 +8,7 @@ It **automatically handles** state transitions, guards, and event triggering usi
 > 🎥 This is **Part 3** of the series:
 > - Part 1: Explaining what a State Machine is.
 > - Part 2: Implementing a State Machine manually in Java.
-> - **Part 3 (this one): Using Spring State Machine Framework.** [Watch the video here](https://www.youtube.com/@gabrielbragadev) 👈
+> - **Part 3 (this one): Using Spring State Machine Framework.** [Watch the video here](https://youtu.be/vedmXkjZS9w) 👈
 
 ---
 
