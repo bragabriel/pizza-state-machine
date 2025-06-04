@@ -28,11 +28,11 @@ This project is part of a **video series** on my [YouTube channel](https://www.y
 - Demonstrate how Spring can help simplify the setup and transitions
 
 ### 📺 Watch the episodes:
-1. [What is a State Machine?](https://www.youtube.com/@gabrielbragadev)
+1. [What is a State Machine?](https://www.youtube.com/watch?v=SqTnB6Pn-Bk)
 
-2. [Implementing a State-Machine manually in Java (No Frameworks)](https://www.youtube.com/@gabrielbragadev)
+2. [Implementing a State-Machine manually in Java (No Frameworks)](https://www.youtube.com/watch?v=wrCdHYnlj14)
 
-3. [State Machines with Spring: Clean, Scalable, Easy](https://www.youtube.com/@gabrielbragadev)
+3. [This Spring Framework Is RARELY Used – And EXTREMELY Powerful | Spring State Machine in Practice!](https://youtu.be/vedmXkjZS9w)
 
 ---
 
